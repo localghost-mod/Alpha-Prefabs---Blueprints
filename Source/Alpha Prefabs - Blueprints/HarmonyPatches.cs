@@ -34,7 +34,7 @@ namespace Alpha_Prefabs_Blueprints
             if (!__instance.prefab.variations.NullOrEmpty())
                 AlphaPrefabs.Utils.DrawButton(
                     oderButtonRect,
-                    "AP_Export".Translate(),
+                    "AP_ExportWithVariation".Translate(),
                     () =>
                         Find.WindowStack.Add(
                             new FloatMenu(
@@ -60,7 +60,7 @@ namespace Alpha_Prefabs_Blueprints
                             )
                         )
                 );
-            else if (Widgets.ButtonText(oderButtonRect, "AP_ExportWithVariation".Translate()))
+            else if (Widgets.ButtonText(oderButtonRect, "AP_Export".Translate()))
                 __instance.Export();
         }
 
@@ -72,7 +72,9 @@ namespace Alpha_Prefabs_Blueprints
             BlueprintController.Add(
                 Utils.ToBluePrint(
                     layoutVariation ?? __instance.prefab.layout,
-                    $"{__instance.prefab.LabelCap}_{variationString ?? __instance.prefab.labelForDefaultVariation}"
+                    !__instance.prefab.variations.NullOrEmpty()
+                        ? $"{__instance.prefab.LabelCap} {variationString ?? __instance.prefab.labelForDefaultVariation}"
+                        : $"{__instance.prefab.LabelCap}"
                 )
             );
     }

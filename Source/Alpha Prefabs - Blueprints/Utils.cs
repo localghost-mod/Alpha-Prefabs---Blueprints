@@ -54,7 +54,7 @@ namespace Alpha_Prefabs_Blueprints
                             new BuildableInfo(terrain, new IntVec3(j, 0, i), IntVec3.Zero)
                         );
                 }
-            return new Blueprint(contents, sizes, name);
+            return new Blueprint(contents, sizes, name.Replace(' ', '_').Replace('-', '_'));
         }
 
         public static Thing CreateThing(
