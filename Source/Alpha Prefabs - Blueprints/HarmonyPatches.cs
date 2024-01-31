@@ -73,7 +73,7 @@ namespace Alpha_Prefabs_Blueprints
                 Utils.ToBluePrint(
                     layoutVariation ?? __instance.prefab.layout,
                     !__instance.prefab.variations.NullOrEmpty()
-                        ? $"{__instance.prefab.LabelCap} {variationString ?? __instance.prefab.labelForDefaultVariation}"
+                        ? $"{__instance.prefab.LabelCap} ({variationString ?? __instance.prefab.labelForDefaultVariation})"
                         : $"{__instance.prefab.LabelCap}"
                 )
             );

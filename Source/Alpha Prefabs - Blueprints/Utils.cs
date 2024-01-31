@@ -10,6 +10,8 @@ namespace Alpha_Prefabs_Blueprints
     {
         public static Blueprint ToBluePrint(this StructureLayoutDef structureLayoutDef, string name)
         {
+            if (!Contains("fluffy.blueprints.fork"))
+                name = name.Replace(' ', '_').Replace('-', '_').Replace("(", "").Replace(")", "");
             var layouts = Traverse
                 .Create(structureLayoutDef)
                 .Field("_layouts")
@@ -54,7 +56,7 @@ namespace Alpha_Prefabs_Blueprints
                             new BuildableInfo(terrain, new IntVec3(j, 0, i), IntVec3.Zero)
                         );
                 }
-            return new Blueprint(contents, sizes, name.Replace(' ', '_').Replace('-', '_'));
+            return new Blueprint(contents, sizes, name);
         }
 
         public static Thing CreateThing(
@@ -71,5 +73,7 @@ namespace Alpha_Prefabs_Blueprints
             traverse.Field("rotationInt").SetValue(rotation);
             return thing;
         }
+        public static bool Contains(string packageId) =>
+            ModLister.GetActiveModWithIdentifier(packageId, true) != null;
     }
 }

@@ -24,16 +24,13 @@
 			<displayName>Alpha Prefabs</displayName>
 			<steamWorkshopUrl>steam://url/CommunityFilePage/3070780021</steamWorkshopUrl>
 		</li>
-		<li>
-			<packageId>fluffy.blueprints.fixed</packageId>
-			<displayName>Blueprints fix</displayName>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/2984173499</steamWorkshopUrl>
-		</li>
 	</modDependencies>
 	<loadAfter>
 		<li>brrainz.harmony</li>
 		<li>oskarpotocki.vanillafactionsexpanded.core</li>
 		<li>sarg.alphaprefabs</li>
+		<li>fluffy.blueprints</li>
 		<li>fluffy.blueprints.fixed</li>
+		<li>fluffy.blueprints.fork</li>
 	</loadAfter>
 </ModMetaData>
